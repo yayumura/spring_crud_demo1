@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,6 +21,11 @@ public class IssueController {
     public String showList(Model model) {
         model.addAttribute("issueList", issueService.findAll());
         return "issues/list";
+    }
+
+    @GetMapping("/creationForm")
+    public String showCreationForm(@ModelAttribute IssueForm issueForm) {
+        return "issues/creationForm";
     }
 
 }
