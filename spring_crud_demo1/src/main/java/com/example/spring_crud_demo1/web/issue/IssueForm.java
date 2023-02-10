@@ -1,17 +1,17 @@
 package com.example.spring_crud_demo1.web.issue;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class IssueForm {
 
-    @NotNull
+    @NotBlank
     @Size(max=256)
     private String summary;
 
-    @NotNull
+    @NotBlank
     @Size(max=256)
     private String description;
 }
