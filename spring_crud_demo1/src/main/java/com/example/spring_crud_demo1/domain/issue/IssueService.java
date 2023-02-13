@@ -25,4 +25,9 @@ public class IssueService {
         return issueRepository.findById(id);
     }
 
+    @Transactional
+    public void delete(int id) {
+        issueRepository.delete(id);
+    }
+
 }

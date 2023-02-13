@@ -10,3 +10,4 @@ public class IssueEntity {
     private String summary;
     private String description;
 }
+

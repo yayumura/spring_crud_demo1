@@ -22,6 +22,12 @@
         <td>
             <a href="./detail.html" th:href="@{/issues/{issueId}(issueId=${issue.id})}" th:text="${issue.summary}">(summary)</a>
         </td>
+        <td>
+            <form action="#" th:action="@{/issues/deleteConfirm}" method="post">
+                <input type="hidden" name="issueId" th:value="${issue.id}">
+                <button type="submit">削除</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

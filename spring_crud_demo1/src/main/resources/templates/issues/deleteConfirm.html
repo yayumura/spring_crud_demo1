@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>削除内容確認　｜　課題管理アプリケーション</title>
+</head>
+<body>
+<h1>削除内容確認</h1>
+<a href="./list.html" th:href="@{/issues}">戻る</a>
+<div th:object="${issueObject}">
+  <ul>
+    <li th:text="*{summary}">(summary)</li>
+    <li th:text="*{description}">(description)</li>
+  </ul>
+</div>
+  <form action="#" th:action="@{/issues/deleteComplete}" method="post">
+    <input type="hidden" name="issueId" th:value="${issueId}">
+    <button type="submit">削除</button>
+  </form>
+</body>
+</html>

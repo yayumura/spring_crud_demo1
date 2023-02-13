@@ -1,5 +1,6 @@
 package com.example.spring_crud_demo1.domain.issue;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -17,5 +18,8 @@ public interface IssueRepository {
 
     @Select("SELECT * FROM issues WHERE id = #{id}")
     IssueEntity findById(int id);
+
+    @Delete("DELETE FROM issues WHERE id = #{id}")
+    void delete(int id);
 
 }

@@ -58,4 +58,19 @@ public class IssueController {
         return "issues/detail";
     }
 
+    @PostMapping("/deleteConfirm")
+    public String deleteConfirm(@RequestParam("issueId") int issueId, Model model) {
+        model.addAttribute("issueId", issueId);
+        model.addAttribute("issueObject", issueService.findById(issueId));
+        return "issues/deleteConfirm";
+    }
+
+    //TODO issueIdのバリデーションチェックしたいかも。
+    @PostMapping("/deleteComplete")
+    public String deleteComplete(@RequestParam("issueId") int issueId, RedirectAttributes redirectAttributes) {
+        issueService.delete(issueId);
+        redirectAttributes.addFlashAttribute("complete", "削除が完了しました");
+        return "redirect:/issues";
+    }
+
 }
