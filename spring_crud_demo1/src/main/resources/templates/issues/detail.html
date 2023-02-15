@@ -6,10 +6,17 @@
 </head>
 <body>
 <h1>課題詳細</h1>
+<h2 th:text="${complete}"></h2>
 <a href="./list.html" th:href="@{/issues}">一覧に戻る</a>
 <div th:object="${issueObject}">
   <h2 th:text="*{summary}">(summary)</h2>
   <p th:text="*{description}">(description)</p>
 </div>
+<form action="#" th:action="@{/issues/edit}" method="post">
+    <input type="hidden" name="issueObject" th:value="${issueObject}">
+    <input type="hidden" name="issueId" th:value="${issueId}">
+    <input type="hidden" name="infoGetFlg" th:value=1>
+    <button type="submit">編集</button>
+</form>
 </body>
 </html>

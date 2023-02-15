@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>編集内容確認　｜　課題管理アプリケーション</title>
+</head>
+<body>
+<h1>編集内容確認</h1>
+<ul th:object="${issueForm}">
+  <li th:text="*{summary}">(summary)</li>
+  <li th:text="*{description}">(description)</li>
+</ul>
+<form action="#" th:action="@{/issues/edit}" method="post">
+  <input type="hidden" name="issueId" th:value="${issueId}">
+  <input type="hidden" th:field="${issueForm.summary}">
+  <input type="hidden" th:field="${issueForm.description}">
+  <input type="hidden" name="infoGetFlg" th:value=0>
+  <button type="submit">戻る</button>
+</form>
+<form action="#" th:action="@{/issues/editComplete}" method="post">
+  <input type="hidden" name="issueId" th:value="${issueId}">
+  <input type="hidden" th:field="${issueForm.summary}">
+  <input type="hidden" th:field="${issueForm.description}">
+  <button type="submit">完了</button>
+</form>
+</body>
+</html>

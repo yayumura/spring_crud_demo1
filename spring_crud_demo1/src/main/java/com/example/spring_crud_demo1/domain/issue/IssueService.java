@@ -30,4 +30,9 @@ public class IssueService {
         issueRepository.delete(id);
     }
 
+    @Transactional
+    public void update(String summary, String description, int id) {
+        issueRepository.update(summary, description, id);
+    }
+
 }
